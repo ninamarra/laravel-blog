@@ -46,7 +46,7 @@ php artisan serve
 You need to update the **.env** file with your credentials. Don't forget to create the database.
 
 ## Built With
-* [Laravel](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+* [Laravel](https://laravel.com/) - The web framework used
 * [Renda template](https://moozthemes.com/renda-clean-blog-bootstrap-theme/) - Blog template
 * [CoreUI](http://coreui.io/) - Admin panel template
 
