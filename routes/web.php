@@ -12,16 +12,16 @@
 */
 
 Route::get('/', function () {
-return view('welcome');
+  return view('welcome');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::resource('category', 'CategoryController');
-
 Route::group(['middleware' => 'auth'], function () {
+
+  Route::resource('category', 'CategoryController');
 
 	Route::group(['prefix' => 'permissions'], function () {
 
@@ -48,7 +48,7 @@ Route::group(['middleware' => 'auth'], function () {
 		});
 
 	});
-	
+
 	Route::get('user/profile', function () {
 	// Uses Auth Middleware
 	});
