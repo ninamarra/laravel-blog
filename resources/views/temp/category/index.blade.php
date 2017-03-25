@@ -40,12 +40,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($category as $cat)
+                                @foreach ($categories as $cat)
 
                                    <tr>
                                        <th scope="row">{{ $cat->id }}</th>
                                        <td>{{ $cat->title }}</td>
-                                       <td>{{ $cat->category_id or '-' }}</td>
+                                       <td>{{ $cat->category->title or '-' }}</td>
                                        <td><a href="{{ route('category.edit', $cat->id) }}" class="btn btn-sm btn-warning">Edit</a></td>
                                        <td>
                                            {!! Form::open([
@@ -67,22 +67,9 @@
                     <hr>
 
                     {!! Form::open(['route' => 'category.store']) !!}
-                        <div class="form-group">
-                            {!! Form::label('title', 'Title *', ['class' => 'control-label']) !!}
-                            {!! Form::text('title', null, ['class' => 'form-control']) !!}
-                        </div>
 
-                        <div class="form-group">
-                            <label for="">Parent Category</label>
-                            <select class="form-control" name="category_id">
-                                <option>Chose one</option>
-                                @foreach ($category as $cat)
-                                <option value="{{ $cat->id }}">{{ $cat->title }}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                    @include('temp.category.form')
 
-                        {!! Form::submit('Add', ['class' => 'btn btn-primary pull-right']) !!}
                     {!! Form::close() !!}
 
                 </div>
