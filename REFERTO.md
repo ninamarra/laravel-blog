@@ -11,3 +11,12 @@ git remote add origin <url>
 git push -u origin master
 ```
 * [Git flow cheatsheet](https://danielkummer.github.io/git-flow-cheatsheet/)
+
+* [Avoid prompt to input username and password](http://stackoverflow.com/questions/8588768/git-push-username-password-how-to-avoid)
+```
+git config credential.helper store
+git push https://github.com/YOUR-REPO.git
+
+Username for 'https://github.com': <USERNAME>
+Password for 'https://USERNAME@github.com': <PASSWORD>
+```
