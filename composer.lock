@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ab807e4321c9beaf26d16b5ddb930afb",
+    "content-hash": "be46f715807b01ca6e5ea183aac0d515",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -237,6 +237,18 @@
         },
         {
             "name": "laravel/framework",
+<<<<<<< HEAD
+            "version": "v5.4.16",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "6cf379ec34d08bcdc9c7183e369a8fdf04ade80d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/6cf379ec34d08bcdc9c7183e369a8fdf04ade80d",
+                "reference": "6cf379ec34d08bcdc9c7183e369a8fdf04ade80d",
+=======
             "version": "v5.4.15",
             "source": {
                 "type": "git",
@@ -247,6 +259,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/framework/zipball/ecc6468b8af30b77566a8519ce8898740ef691d7",
                 "reference": "ecc6468b8af30b77566a8519ce8898740ef691d7",
+>>>>>>> a8d3aa35738cd0ef1f8ade3e564208728237a9ff
                 "shasum": ""
             },
             "require": {
@@ -362,7 +375,11 @@
                 "framework",
                 "laravel"
             ],
+<<<<<<< HEAD
+            "time": "2017-03-21T19:34:41+00:00"
+=======
             "time": "2017-03-02T14:41:40+00:00"
+>>>>>>> a8d3aa35738cd0ef1f8ade3e564208728237a9ff
         },
         {
             "name": "laravel/tinker",
@@ -423,6 +440,73 @@
             "time": "2016-12-30T18:13:17+00:00"
         },
         {
+<<<<<<< HEAD
+            "name": "laravelcollective/html",
+            "version": "v5.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/LaravelCollective/html.git",
+                "reference": "7570f25d58a00fd6909c0563808590f9cdb14d47"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/LaravelCollective/html/zipball/7570f25d58a00fd6909c0563808590f9cdb14d47",
+                "reference": "7570f25d58a00fd6909c0563808590f9cdb14d47",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/http": "5.4.*",
+                "illuminate/routing": "5.4.*",
+                "illuminate/session": "5.4.*",
+                "illuminate/support": "5.4.*",
+                "illuminate/view": "5.4.*",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "illuminate/database": "5.4.*",
+                "mockery/mockery": "~0.9.4",
+                "phpunit/phpunit": "~5.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Collective\\Html\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylorotwell@gmail.com"
+                },
+                {
+                    "name": "Adam Engebretson",
+                    "email": "adam@laravelcollective.com"
+                }
+            ],
+            "description": "HTML and Form Builders for the Laravel Framework",
+            "homepage": "http://laravelcollective.com",
+            "time": "2017-01-26T19:27:05+00:00"
+        },
+        {
+            "name": "league/flysystem",
+            "version": "1.0.37",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/flysystem.git",
+                "reference": "78b5cc4feb61a882302df4fbaf63b7662e5e4ccd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/78b5cc4feb61a882302df4fbaf63b7662e5e4ccd",
+                "reference": "78b5cc4feb61a882302df4fbaf63b7662e5e4ccd",
+=======
             "name": "league/flysystem",
             "version": "1.0.35",
             "source": {
@@ -434,6 +518,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/dda7f3ab94158a002d9846a97dc18ebfb7acc062",
                 "reference": "dda7f3ab94158a002d9846a97dc18ebfb7acc062",
+>>>>>>> a8d3aa35738cd0ef1f8ade3e564208728237a9ff
                 "shasum": ""
             },
             "require": {
@@ -503,7 +588,11 @@
                 "sftp",
                 "storage"
             ],
+<<<<<<< HEAD
+            "time": "2017-03-22T15:43:14+00:00"
+=======
             "time": "2017-02-09T11:33:58+00:00"
+>>>>>>> a8d3aa35738cd0ef1f8ade3e564208728237a9ff
         },
         {
             "name": "monolog/monolog",
@@ -828,6 +917,18 @@
         },
         {
             "name": "psy/psysh",
+<<<<<<< HEAD
+            "version": "v0.8.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/bobthecow/psysh.git",
+                "reference": "1dd4bbbc64d71e7ec075ffe82b42d9e096dc8d5e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/bobthecow/psysh/zipball/1dd4bbbc64d71e7ec075ffe82b42d9e096dc8d5e",
+                "reference": "1dd4bbbc64d71e7ec075ffe82b42d9e096dc8d5e",
+=======
             "version": "v0.8.2",
             "source": {
                 "type": "git",
@@ -838,6 +939,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/bobthecow/psysh/zipball/97113db4107a4126bef933b60fea6dbc9f615d41",
                 "reference": "97113db4107a4126bef933b60fea6dbc9f615d41",
+>>>>>>> a8d3aa35738cd0ef1f8ade3e564208728237a9ff
                 "shasum": ""
             },
             "require": {
@@ -897,6 +999,22 @@
                 "interactive",
                 "shell"
             ],
+<<<<<<< HEAD
+            "time": "2017-03-19T21:40:44+00:00"
+        },
+        {
+            "name": "ramsey/uuid",
+            "version": "3.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ramsey/uuid.git",
+                "reference": "0b7bdfb180e72c8d76e75a649ced67e392201458"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/0b7bdfb180e72c8d76e75a649ced67e392201458",
+                "reference": "0b7bdfb180e72c8d76e75a649ced67e392201458",
+=======
             "time": "2017-03-01T00:13:29+00:00"
         },
         {
@@ -911,11 +1029,16 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/ramsey/uuid/zipball/5677cfe02397dd6b58c861870dfaa5d9007d3954",
                 "reference": "5677cfe02397dd6b58c861870dfaa5d9007d3954",
+>>>>>>> a8d3aa35738cd0ef1f8ade3e564208728237a9ff
                 "shasum": ""
             },
             "require": {
                 "paragonie/random_compat": "^1.0|^2.0",
+<<<<<<< HEAD
+                "php": "^5.4 || ^7.0"
+=======
                 "php": ">=5.4"
+>>>>>>> a8d3aa35738cd0ef1f8ade3e564208728237a9ff
             },
             "replace": {
                 "rhumsaa/uuid": "self.version"
@@ -979,7 +1102,11 @@
                 "identifier",
                 "uuid"
             ],
+<<<<<<< HEAD
+            "time": "2017-03-18T15:38:09+00:00"
+=======
             "time": "2016-11-22T19:21:44+00:00"
+>>>>>>> a8d3aa35738cd0ef1f8ade3e564208728237a9ff
         },
         {
             "name": "spatie/laravel-permission",
@@ -2631,6 +2758,18 @@
         },
         {
             "name": "phpunit/phpunit",
+<<<<<<< HEAD
+            "version": "5.7.17",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/phpunit.git",
+                "reference": "68752b665d3875f9a38a357e3ecb35c79f8673bf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/68752b665d3875f9a38a357e3ecb35c79f8673bf",
+                "reference": "68752b665d3875f9a38a357e3ecb35c79f8673bf",
+=======
             "version": "5.7.16",
             "source": {
                 "type": "git",
@@ -2641,6 +2780,7 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/dafc78e2a7d12139b0e97078d1082326bd09363d",
                 "reference": "dafc78e2a7d12139b0e97078d1082326bd09363d",
+>>>>>>> a8d3aa35738cd0ef1f8ade3e564208728237a9ff
                 "shasum": ""
             },
             "require": {
@@ -2709,7 +2849,11 @@
                 "testing",
                 "xunit"
             ],
+<<<<<<< HEAD
+            "time": "2017-03-19T16:52:12+00:00"
+=======
             "time": "2017-03-15T13:02:34+00:00"
+>>>>>>> a8d3aa35738cd0ef1f8ade3e564208728237a9ff
         },
         {
             "name": "phpunit/phpunit-mock-objects",
