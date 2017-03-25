@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index');
 Route::group(['middleware' => 'auth'], function () {
 
   Route::resource('category', 'CategoryController');
+  Route::resource('post', 'PostController');
 
 	Route::group(['prefix' => 'permissions'], function () {
 
