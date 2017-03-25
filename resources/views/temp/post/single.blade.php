@@ -9,37 +9,34 @@
         <div class="col-md-9">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <a href="{{ route('post.create') }}" class="btn btn-success">New</a>
-                    @foreach ($posts as $p)
-                    <hr>
                     <div class="text-center">
-                        <p class="text-uppercase">{{ $p->category->title }}</a>
+                        <p class="text-uppercase">{{ $post->category->title }}</p>
                         <h2>
-                            <a href="{{ route('post.show', $p->id) }}">{{ $p->title }}</a>
+                            {{ $post->title }}
                             <br><small>
-                                {{ $p->subtitle }}
+                                {{ $post->subtitle }}
                             </small>
                         </h2>
                     </div>
-                    <p>{!! nl2br(e($p->body)) !!}</p>
+                    <p>Post by {{ $post->user->name }}</p>
+                    <p>{!! nl2br(e($post->body)) !!}</p>
                     <div class="row">
                         <div class="col-md-1">
-                            <a href="{{ route('post.edit', $p->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                            <a href="{{ route('post.edit', $post->id) }}" class="btn btn-sm btn-warning">Edit</a>
                         </div>
                         <div class="col-md-1">
                             {!! Form::open([
                                 'method' => 'DELETE',
-                                'route' => ['category.destroy', $p->id]
+                                'route' => ['category.destroy', $post->id]
                             ]) !!}
                             {!! Form::submit('Delete', ['class' => 'btn btn-sm btn-danger']) !!}
                             {!! Form::close() !!}
                         </div>
                         <div class="col-md-10">
-                            <p class="pull-right">Created at <b>{{ $p->created_at->toFormattedDateString() }}</b></p>
+                            <p class="pull-right">Created at <b>{{ $post->created_at->toFormattedDateString() }}</b></p>
                         </div>
                     </div>
                     <hr>
-                    @endforeach
                 </div>
             </div>
         </div>

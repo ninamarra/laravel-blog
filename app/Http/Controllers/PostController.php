@@ -44,7 +44,7 @@ class PostController extends Controller
             else {
                 $newPost = $request->all();
             }
-            
+
             $newPost['user_id'] = auth()->user()->id;
             Post::create($newPost);
 
@@ -59,7 +59,7 @@ class PostController extends Controller
          */
         public function show(Post $post)
         {
-            //
+            return view('temp.post.single', compact('post'));
         }
 
         /**
