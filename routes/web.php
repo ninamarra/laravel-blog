@@ -23,6 +23,13 @@ Route::group(['middleware' => 'auth'], function () {
 
   Route::resource('category', 'CategoryController');
 
+	Route::get('post/trashed', 'PostController@trashed')->name('post.trashed');
+	Route::get('post/{id}/restore', 'PostController@restore')->name('post.restore');
+	Route::delete('post/{id}/delete', 'PostController@delete')->name('post.delete');
+
+	Route::resource('post', 'PostController');
+
+
 	Route::group(['prefix' => 'permissions'], function () {
 
 		Route::get('/', function (){
