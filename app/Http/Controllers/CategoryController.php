@@ -38,7 +38,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->all();
+        if($request->has('category_id') && $request->category_id == 'Chose one') {
+            $input = $request->except('category_id');
+        }
+        else {
+            $input = $request->all();
+        }
+
         Category::create($input);
         //Session::flash('flash_message', 'Category saved!');
 
