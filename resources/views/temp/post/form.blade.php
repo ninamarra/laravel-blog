@@ -9,18 +9,19 @@
 </div>
 
 <div class="form-group">
-    <label for="category_id" class="control-label">Category</label>
-    <select class="form-control" name="category_id">
-        <option>Chose one</option>
-        @foreach ($categories as $cat)
-            <option value="{{ $cat->id }}">{{ $cat->title }}</option>
-        @endforeach
-    </select>
+
+    <div class="form-group">
+        {!! Form::label('categories', 'Categories', ['class' => 'control-label']) !!}
+        {!! Form::select('categories[]',
+        $categories,
+        null,
+        ['class' => 'form-control']) !!}
+    </div>
 </div>
 
 <div class="form-group">
-    <label for="body" class="control-label">Body</label>
-    <textarea class="form-control" rows="6" name="body"></textarea>
+    {!! Form::label('body', 'Title', ['class' => 'control-label']) !!}
+    {!! Form::textarea('body', null, ['class' => 'form-control']) !!}
 </div>
 
 {!! Form::submit('Submit', ['class' => 'btn btn-primary pull-right']) !!}

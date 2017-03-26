@@ -13,7 +13,11 @@
                     @foreach ($posts as $p)
                     <hr>
                     <div class="text-center">
-                        <p class="text-uppercase">{{ $p->category->title }}</a>
+                        <p class="text-uppercase">
+                        @foreach($p->categories as $c)
+                            {{ $c->title }}
+                        @endforeach
+                        </p>
                         <h2>
                             <a href="{{ route('post.show', $p->id) }}">{{ $p->title }}</a>
                             <br><small>
@@ -29,7 +33,7 @@
                         <div class="col-md-1">
                             {!! Form::open([
                                 'method' => 'DELETE',
-                                'route' => ['category.destroy', $p->id]
+                                'route' => ['post.destroy', $p->id]
                             ]) !!}
                             {!! Form::submit('Delete', ['class' => 'btn btn-sm btn-danger']) !!}
                             {!! Form::close() !!}
@@ -38,7 +42,6 @@
                             <p class="pull-right">Created at <b>{{ $p->created_at->toFormattedDateString() }}</b></p>
                         </div>
                     </div>
-                    <hr>
                     @endforeach
                 </div>
             </div>
