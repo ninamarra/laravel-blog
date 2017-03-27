@@ -19,6 +19,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+Route::group(['prefix' => 'comment'], function(){
+  Route::post('store/{post}', 'PostController@addComment')->name('comment.store');
+});
+
 Route::group(['middleware' => 'auth'], function () {
 
   Route::resource('category', 'CategoryController');

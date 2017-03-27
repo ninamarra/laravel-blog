@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\CommentController;
 
 class PostController extends Controller
 {
+    private $commentController;
+
+    public function __construct(CommentController $commentController)
+    {
+        $this->commentController = $commentController;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +23,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with(['user', 'categories'])->get();
+        $posts = Post::with(['user', 'categories', 'comments'])->get();
         return view('temp.post.index', compact('posts'));
     }
 
@@ -163,6 +171,13 @@ class PostController extends Controller
             \DB::rollBack();
             dd($e);
         }
+    }
+
+    public function addComment(Request $request, Post $post)
+    {
+        $request->request->add(['post_id' => $post->id]);
+        
+        return $this->commentController->store($request);
     }
 
     private function getCategorySelect()

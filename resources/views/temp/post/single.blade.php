@@ -41,6 +41,45 @@
                         </div>
                     </div>
                     <hr>
+
+                    <h3>Leave a comment</h3>
+
+                    {!! Form::open(['route' => ['comment.store', $post->id]]) !!}
+
+                    <div class="form-group">
+                        {!! Form::label('name', 'Name', ['class' => 'control-label']) !!}
+                        {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('site', 'Site', ['class' => 'control-label']) !!}
+                        {!! Form::text('site', null, ['class' => 'form-control']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('email', 'Email *', ['class' => 'control-label']) !!}
+                        {!! Form::text('email', null, ['class' => 'form-control', 'required' => 'required']) !!}
+                    </div>
+
+                    <div class="form-group">
+                        {!! Form::label('body', 'Comment *', ['class' => 'control-label']) !!}
+                        {!! Form::textarea('body', null, ['class' => 'form-control']) !!}
+                    </div>
+
+                    {!! Form::submit('Save comment', ['class' => 'btn btn-primary pull-right', 'required' => 'required']) !!}
+
+                    {!! Form::close() !!}
+
+                    <div class="row" id="comments">
+                        <br>
+                        @foreach($post->comments as $c)
+                        <div class="col-sm-12 media">
+                            <div class="media-body">
+                            <h4 class="media-heading">{{ $c->name }}</h4>
+                            {{ $c->body }}
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+
                 </div>
             </div>
         </div>
