@@ -27,8 +27,8 @@ class CreateCommentsTable extends Migration
 
             $table->boolean('approved')->default(false);
 
-            $table->softDeletes();
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
             $table->foreign('comment_id')->references('id')->on('comments')->onDelete('cascade');
