@@ -23,7 +23,16 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with(['user', 'categories', 'comments'])->get();
+        if(\Auth::guest()) {
+            $posts = Post::with(['categories', 'user'])->withCount([
+                'comments' => function ($query) {
+                    $query->where('approved', true);
+                }
+            ])->get();
+        } else {
+            $posts = Post::with(['categories', 'user'])->withCount(['comments'])->get();
+        }
+
         return view('temp.post.index', compact('posts'));
     }
 
@@ -75,6 +84,13 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        if(\Auth::guest()) {
+            $post = $post->with([
+                'comments' => function ($query) {
+                    $query->where('approved', true);
+                }
+            ])->first();
+        }
         return view('temp.post.single', compact('post'));
     }
 
@@ -176,7 +192,11 @@ class PostController extends Controller
     public function addComment(Request $request, Post $post)
     {
         $request->request->add(['post_id' => $post->id]);
-        
+
+        if(!\Auth::guest()) {
+            $request->request->add(['user_id' => auth()->user()->id]);
+        }
+
         return $this->commentController->store($request);
     }
 

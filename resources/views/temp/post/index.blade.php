@@ -25,7 +25,7 @@
                             </small>
                         </h2>
                     </div>
-                    <p><a href="/post/{{ $p->id }}#comments"><b>{{ $p->comments->count() }}</b></a> comment(s).</p>
+                    <p><a href="/post/{{ $p->id }}#comments"><b>{{ $p->comments_count }}</b></a> comment(s).</p>
                     <p>{!! nl2br(e($p->body)) !!}</p>
                     <div class="row">
                         <div class="col-md-1">
