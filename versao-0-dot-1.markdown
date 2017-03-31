@@ -1,6 +1,7 @@
 ---
 title: Versão 0.1
 date: 2017-03-31 21:55:00 Z
+published: false
 Features:
 - Posts - basic CRUD
 - Categories - basic CRUD
@@ -10,3 +11,4 @@ Features:
 - Admin panel layout with blade and Vue (CoreUI)
 ---
 
+asdasd
