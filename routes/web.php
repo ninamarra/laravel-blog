@@ -13,6 +13,10 @@
 
 Auth::routes();
 
+Route::get('/teste', function(){
+  return view('posts.home', ['posts' => \App\Post::all(), 'categories' => \App\Category::all()]);
+});
+
 Route::get('/home', 'PostController@index');
 Route::get('/', 'PostController@index')->name('post.index');
 Route::get('post/{post}', 'PostController@show')->name('post.show');
