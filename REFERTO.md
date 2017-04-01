@@ -20,3 +20,7 @@ git push https://github.com/YOUR-REPO.git
 Username for 'https://github.com': <USERNAME>
 Password for 'https://USERNAME@github.com': <PASSWORD>
 ```
+
+## VUE
+* Integration https://github.com/JeffreyWay/laravel-elixir-vue
+* [Utilização do Vue.js em uma aplicação Laravel](https://www.youtube.com/watch?v=TGSJjDahlrQ&t=23s)

@@ -11,24 +11,39 @@
 |
 */
 
-Route::get('/', function () {
-  return view('welcome');
-});
+Route::get('usuarios', 'PainelController@index')->name('usuarios.index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/seed', 'HomeController@index');
+Route::get('/', 'PostController@index')->name('post.index');
+Route::get('post/{post}', 'PostController@show')->name('post.show');
+
+Route::group(['prefix' => 'comment'], function(){
+  Route::post('store/{post}', 'PostController@addComment')->name('comment.store');
+});
 
 Route::group(['middleware' => 'auth'], function () {
 
-  Route::resource('category', 'CategoryController');
+  Route::group(['prefix' => 'search'], function() {
+    Route::get('category/{category}', 'CategoryController@show');
+  });
+
+	Route::resource('category', 'CategoryController', ['except' => [
+		'index'
+	]]);
+
+	Route::group(['prefix' => 'comment'], function(){
+	  Route::get('approve/{comment}', 'CommentController@approve')->name('comment.approve');
+		Route::delete('destroy/{comment}', 'CommentController@destroy')->name('comment.destroy');
+	});
 
 	Route::get('post/trashed', 'PostController@trashed')->name('post.trashed');
 	Route::get('post/{id}/restore', 'PostController@restore')->name('post.restore');
 	Route::delete('post/{id}/delete', 'PostController@delete')->name('post.delete');
-
-	Route::resource('post', 'PostController');
-
+	Route::resource('post', 'PostController', ['except' => [
+		'index', 'show'
+	]]);
 
 	Route::group(['prefix' => 'permissions'], function () {
 

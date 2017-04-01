@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use App\Category;
 use Illuminate\Http\Request;
 
@@ -57,9 +58,24 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($title)
     {
-        //
+        if(\Auth::guest()) {
+            $posts = Post::latest()->with(['user'])->withCount([
+                'comments' => function ($query) {
+                    $query->where('approved', true);
+                }
+            ])->whereHas('categories', function ($q) use ($title) {
+                    $q->where('categories.title', $title);
+            })->get();
+        } else {
+            $posts = Post::latest()->with(['categories', 'user'])->withCount(['comments'])
+                ->whereHas('categories', function ($q) use ($title) {
+                    $q->where('categories.title', $title);
+                })->get();
+        }
+
+        return view('posts.home', ['posts' => $posts, 'categories' => Category::all()]);
     }
 
     /**
