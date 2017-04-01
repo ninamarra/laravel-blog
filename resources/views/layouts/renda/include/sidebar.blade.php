@@ -1,4 +1,21 @@
 <aside>
+@if (\Auth::guest())
+  <div class="sidebar-widget">
+    <div class="widget-container">
+      <a href="{{ route('login') }}">Login</a> / <a href="{{ route('register') }}">Register</a>
+    </div>
+  </div>
+@endif
+
+<form>
+  <div class="form-group">
+    <div class="input-group">
+      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Search" />
+      <div class="input-group-addon"><i class="fa fa-search" aria-hidden="true"></i></div>
+    </div>
+  </div>
+  <br>
+</form>
 
 @component('layouts.renda.components.simple-text')
   @slot('title')
@@ -14,7 +31,7 @@
 
 @component('layouts.renda.components.post-list', ['comp_posts' => $posts])
   @slot('title')
-    About me
+    Recent
   @endslot
 
   @slot('name')

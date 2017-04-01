@@ -33,7 +33,9 @@ class PostController extends Controller
             $posts = Post::with(['categories', 'user'])->withCount(['comments'])->get();
         }
 
-        return view('temp.post.index', compact('posts'));
+
+
+        return view('posts.home', ['posts' => $posts, 'categories' => Category::all()]);
     }
 
     /**
@@ -91,7 +93,14 @@ class PostController extends Controller
                 }
             ])->first();
         }
-        return view('temp.post.single', compact('post'));
+
+        $viewData = [
+            'post' => $post,
+            'categories' => Category::all(),
+            'posts' => Post::all()
+        ];
+
+        return view('posts.single', $viewData);
     }
 
     /**
