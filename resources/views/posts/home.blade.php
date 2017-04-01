@@ -9,9 +9,9 @@
     <div class="post-meta">
       <span>by <a href="#">{{ $p->user->name }}</a></span>/
       <span><i class="fa fa-clock-o"></i>{{ $p->created_at->toFormattedDateString() }}</span>/
-      <span><i class="fa fa-comment-o"></i> <a href="/post/{{ $p->id }}#comments">{{ $p->comments_count }}</a></span>
+      <span><i class="fa fa-comment-o"></i> <a href="/post/{{ $p->id }}#comments">{{ $p->comments_count or 0 }}</a></span>
       @foreach($p->categories as $c)
-        / <span><a href="#">{{ $c->title }}</a></span>
+        / <span><a href="{{ route('category.show', $c->title) }}">{{ $c->title }}</a></span>
       @endforeach
     </div>
     <div class="blog-post-image">

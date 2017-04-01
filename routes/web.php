@@ -11,9 +11,11 @@
 |
 */
 
+Route::get('usuarios', 'PainelController@index')->name('usuarios.index');
+
 Auth::routes();
 
-Route::get('/home', 'PostController@index');
+Route::get('/seed', 'HomeController@index');
 Route::get('/', 'PostController@index')->name('post.index');
 Route::get('post/{post}', 'PostController@show')->name('post.show');
 
@@ -23,8 +25,12 @@ Route::group(['prefix' => 'comment'], function(){
 
 Route::group(['middleware' => 'auth'], function () {
 
+  Route::group(['prefix' => 'search'], function() {
+    Route::get('category/{category}', 'CategoryController@show');
+  });
+
 	Route::resource('category', 'CategoryController', ['except' => [
-		'index', 'show'
+		'index'
 	]]);
 
 	Route::group(['prefix' => 'comment'], function(){

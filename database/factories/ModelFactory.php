@@ -1,4 +1,6 @@
 <?php
+use App\Post;
+use App\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +18,24 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'name' => $faker->name,
+        'name' => $faker->firstName,
         'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
+        'password' => $password ?: $password = bcrypt('123123'),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(App\Category::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->word,
+    ];
+});
+
+$factory->define(App\Post::class, function (Faker\Generator $faker) {
+    return [
+        'title' => $faker->sentence(3),
+        'subtitle' => $faker->sentence(5),
+        'body' => $faker->paragraph,
+        'user_id' => 1
     ];
 });

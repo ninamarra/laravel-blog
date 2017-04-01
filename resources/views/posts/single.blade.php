@@ -21,10 +21,10 @@
 		<div class="post-meta">
 			<span>by <a href="#">{{ $post->user->name }}</a></span>/
 			<span><i class="fa fa-clock-o"></i>{{ $post->created_at->toFormattedDateString() }}</span>/
-			<span><i class="fa fa-comment-o"></i> <a href="#">343</a></span>/
+			<span><i class="fa fa-comment-o"></i> <a href="/post/{{ $p->id }}#comments">{{ $p->comments_count or 0 }}</a></span>/
 			<span>
 				@foreach($post->categories as $c)
-				<a href="#">{{ $c->title }}</a>
+				<a href="{{ route('category.show', $c->title) }}">{{ $c->title }}</a>
 				@endforeach
 			</span>
 		</div>

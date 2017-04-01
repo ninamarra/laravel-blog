@@ -24,16 +24,14 @@ class PostController extends Controller
     public function index()
     {
         if(\Auth::guest()) {
-            $posts = Post::with(['categories', 'user'])->withCount([
+            $posts = Post::latest()->with(['categories', 'user'])->withCount([
                 'comments' => function ($query) {
                     $query->where('approved', true);
                 }
             ])->get();
         } else {
-            $posts = Post::with(['categories', 'user'])->withCount(['comments'])->get();
+            $posts = Post::latest()->with(['categories', 'user'])->withCount(['comments'])->get();
         }
-
-
 
         return view('posts.home', ['posts' => $posts, 'categories' => Category::all()]);
     }
@@ -75,7 +73,6 @@ class PostController extends Controller
             \DB::rollBack();
             dd($e);
         }
-
     }
 
     /**

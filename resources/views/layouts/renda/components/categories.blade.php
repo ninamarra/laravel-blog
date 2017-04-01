@@ -4,7 +4,7 @@
   <div class="widget-container">
     <ul class="text-capitalize">
       @foreach($categories as $comp_category)
-        <li style="list-style-type:none"><a href="#">{{ $comp_category->title }}</a></li>
+        <li style="list-style-type:none"><a href="{{ route('category.show', $comp_category->title) }}">{{ $comp_category->title }}</a></li>
       @endforeach
     </ul>
   </div>
