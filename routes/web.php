@@ -35,7 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('post/trashed', 'PostController@trashed')->name('post.trashed');
 	Route::get('post/{id}/restore', 'PostController@restore')->name('post.restore');
 	Route::delete('post/{id}/delete', 'PostController@delete')->name('post.delete');
-	Route::resource('post', 'PhotoController', ['except' => [
+	Route::resource('post', 'PostController', ['except' => [
 		'index', 'show'
 	]]);
 
